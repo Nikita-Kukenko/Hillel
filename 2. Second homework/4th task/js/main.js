@@ -6,4 +6,3 @@ for (i = 1; i <= enteredNumber; i++) {
 }
 
 console.log(factorial, 'n!');
-alert(factorial);

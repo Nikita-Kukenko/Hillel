@@ -1,14 +1,16 @@
 n = +prompt('Enter number', '');
 
-if (n === 1) {
+if (n === 1 || n === 2) {
   alert('True');
 }
 
 for (i=2; i <= n; i++) {
-  if (n !== 2 && n % i === 0 && i !== n) {
+  if (n % i === 0) {
     alert('False');
     break;
-  } else if (n === i){
-    alert('True');
   }
+}
+
+if (n === i){
+  alert('True');
 }

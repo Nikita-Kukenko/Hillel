@@ -1,14 +1,7 @@
 
-enterTheNumber = +prompt('Enter the number', '');
-
-if (!enterTheNumber) {
-
   do {
-    alert('False');
-    alert('Try again');
-    enterTheNumberAgain = +prompt('Enter the number', '');
-  } while (!enterTheNumberAgain);
+    enterTheNumber = +prompt('Enter the number', '');
+  } while (!enterTheNumber && enterTheNumber !== 0);
 
-}
 
 alert('True');
