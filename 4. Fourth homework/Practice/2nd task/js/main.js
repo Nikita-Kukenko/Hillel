@@ -1,28 +1,25 @@
 size = 9;
 array2D = new Array(size);
+minResult = 0;
+maxResult = 0;
+minResultIndex = 0;
+maxResultIndex = 0;
 
 for( i = 0; i < array2D.length; i++) {
   array2D[i] = new Array(size);
 
-  for (j = 0; j < array2D[i].length; j++) {
+  for (j = 0, sum = 0; j < array2D[i].length; j++) {
     array2D[i][j] = Math.ceil(Math.random() * 9);
+    sum += array2D[i][j];
   }
 
-  value = array2D[i].reduce((sum, current) => sum + current, 0);
-
-  minResult = array2D[0].reduce((sum, current) => sum + current, 0);
-  maxResult = array2D[0].reduce((sum, current) => sum + current, 0);
-
-  minResultIndex = 0;
-  maxResultIndex = 0;
-
-  if(value > maxResult) {
-    maxResult = value;
+  if(sum > maxResult) {
+    maxResult = sum;
     maxResultIndex = i;
   }
 
-  if(minResult > value) {
-    minResult = value;
+  if(minResult > sum || minResult === 0) {
+    minResult = sum;
     minResultIndex = i;
   }
 
