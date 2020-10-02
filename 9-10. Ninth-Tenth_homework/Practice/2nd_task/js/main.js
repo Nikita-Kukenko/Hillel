@@ -6,11 +6,11 @@ for(var i = 0; i < arrStr.length; i++) {
   var item = arrStr[i];
 
   if(i === 0) {
-    var leftOvers = item.substring(0, item.length);
+    var leftOvers = item.substring(0);
     strResult += leftOvers;
   } else {
     var firstItemElem = item.substring(0, 1).toUpperCase();
-    var leftOvers = item.substring(1, item.length);
+    var leftOvers = item.substring(1);
     strResult += firstItemElem + leftOvers;
   }
 }
@@ -20,17 +20,16 @@ for(var i = 0; i < arrStr.length; i++) {
 var str = 'var_text_hello';
 var arrStr = str.split('_');
 
-var arrResult = arrStr.map(function(item, index){
+function arrModification(item, index){
   if(index === 0) {
-        var leftOvers = item.substring(0, item.length);
-        return leftOvers;
+        return item;
       } else {
         var firstItemElem = item.substring(0, 1).toUpperCase();
-        var leftOvers = item.substring(1, item.length);
+        var leftOvers = item.substring(1);
         return firstItemElem + leftOvers;
       }
-});
+}
 
-var strResult = arrResult.join('');
+var strResult = arrStr.map(arrModification).join('');
 
 console.log(strResult);
