@@ -8,7 +8,7 @@ function mul(a, b) {
 
 var obj = {
   copy: function(buffer) {
-    this[buffer] = null;
+    this[buffer] = this.result;
     return this;
   },
   clear: function() {
@@ -35,5 +35,5 @@ var obj = {
 }
 
 
-obj.copy('Some_name').doFunction(mul, 5, 8).target('TEST').doFunction(sum, 6, 4).clear();
+obj.copy('Some_name').doFunction(mul, 5, 8).copy('copy').target('TEST').doFunction(sum, 6, 4).clear();
 console.log(obj);
