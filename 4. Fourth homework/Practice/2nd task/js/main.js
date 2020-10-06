@@ -10,10 +10,13 @@ for( i = 0; i < array2D.length; i++) {
 
   for (j = 0, sum = 0; j < array2D[i].length; j++) {
     array2D[i][j] = Math.ceil(Math.random() * 9);
-    sum += array2D[i][j];
-    if(i === 0) {
-      minResult = sum;
-    }
+    num = array2D[i][j];
+    sum += num;
+  }
+
+  if(i === 0) {
+    minResult = sum;
+    maxResult = sum;
   }
 
   if(sum > maxResult) {
