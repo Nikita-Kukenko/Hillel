@@ -11,6 +11,9 @@ for( i = 0; i < array2D.length; i++) {
   for (j = 0, sum = 0; j < array2D[i].length; j++) {
     array2D[i][j] = Math.ceil(Math.random() * 9);
     sum += array2D[i][j];
+    if(i === 0) {
+      minResult = sum;
+    }
   }
 
   if(sum > maxResult) {
@@ -18,7 +21,7 @@ for( i = 0; i < array2D.length; i++) {
     maxResultIndex = i;
   }
 
-  if(minResult > sum || minResult === 0) {
+  if(minResult > sum) {
     minResult = sum;
     minResultIndex = i;
   }
@@ -28,3 +31,6 @@ for( i = 0; i < array2D.length; i++) {
 indexItem = array2D[minResultIndex];
 array2D[minResultIndex] = array2D[maxResultIndex];
 array2D[maxResultIndex] = indexItem;
+
+console.log(minResult);
+console.log(array2D);
