@@ -19,14 +19,14 @@ Field.renderField = function() {
   /* 
   альтернативный вариант, но с запятыми получается
 
-  document.write(`<div style="width: auto; text-align: center;">`);
+  document.write(`<div style="text-align: center;">`);
   document.write(`<hr />`);
   document.write(`${this.array.join('<br />')}`);
   document.write(`<hr />`);
   document.write(`</div>`);
   */
   
-  document.write(`<div style="width: auto; text-align: center;">`);
+  document.write(`<div style="text-align: center;">`);
   document.write(`<hr />`);
 
   for(let i = 0, height = this.array.length; i < height; i += 1) {
@@ -117,12 +117,3 @@ class Person {
 }
 
 let person = new Person('Arch', 5, 7);
-
-field.renderField();
-person.start(field);
-person.go('left', 2, field);
-person.go('top', 1, field);
-field.renderField();
-
-console.log(person);
-console.log(field);
