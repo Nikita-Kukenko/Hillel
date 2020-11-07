@@ -2,15 +2,15 @@ function SuperMath(X, Y, sign) {
   this.X = X;
   this.Y = Y;
   this.sign = sign;
-  this.check = function(){
+  this.check = function(obj){
       var askUser = confirm('Выполнить действие?');
       if(askUser) {
-          var result = this.toDo(this.X, this.Y, this.sign);
+          var result = obj.toDo(obj.X, obj.Y, obj.sign);
       } else {
           var newX = prompt('Введите значение X', '2');
           var newY = prompt('Введите значение Y', '2');
           var newSign = prompt('Введите значение Sign', '+');
-          var result = this.toDo(newX, newY, newSign);
+          var result = obj.toDo(newX, newY, newSign);
       }
       
       console.log(result);
@@ -32,4 +32,4 @@ SuperMath.prototype.toDo = function(x, y, sign){
 }
 
 var p = new SuperMath(5, 6, '*');
-p.check();
+p.check(p);
