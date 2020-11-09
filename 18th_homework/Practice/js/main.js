@@ -3,7 +3,7 @@ const numberInput = document.querySelector('.number');
 const redPointer = document.querySelector('.red-pointer');
 const greenPointer = document.querySelector('.green-pointer');
 
-rangeInput.onmousemove = e => {
+rangeInput.oninput = e => {
   numberInput.value = e.target.value;
   progressBar(e.target.value);
 }
