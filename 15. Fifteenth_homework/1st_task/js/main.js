@@ -8,57 +8,55 @@ class Field {
         array[i][j] = 0;
       }
     }
-    let obj = {array}
-    obj.__proto__ = Field;
-    return obj;
+    this.array = array;
   }
-}
 
-Field.renderField = function() {
+  renderField() {
 
-  /* 
-  альтернативный вариант, но с запятыми получается
-
-  document.write(`<div style="text-align: center;">`);
-  document.write(`<hr />`);
-  document.write(`${this.array.join('<br />')}`);
-  document.write(`<hr />`);
-  document.write(`</div>`);
-  */
+    /* 
+    альтернативный вариант, но с запятыми получается
   
-  document.write(`<div style="text-align: center;">`);
-  document.write(`<hr />`);
-
-  for(let i = 0, height = this.array.length; i < height; i += 1) {
-    for(let j = 0, width = this.array[i].length; j < width; j += 1) {
-      let item = this.array[i][j];
-      let check = (j === (width - 1));
-      if(check){
-        document.write(`${item}<br>`);
-      } else {
-        document.write(`${item}` + ' ');
-      }
-    }
-  }
-
-  document.write(`<hr />`);
-  document.write(`</div>`);
-}
-
-Field.clearField = function(pers) {
-  this.array[pers.XPosition][pers.YPosition] = 0;
-  this.array[pers.saveXPosition][pers.saveYPosition] = 0;
-}
-
-Field.changeSize = function(newX, newY) {
-  this.array = new Array(newX);
-    for(let i = 0; i < newX; i++) {
-      this.array[i] = new Array(newY);
+    document.write(`<div style="text-align: center;">`);
+    document.write(`<hr />`);
+    document.write(`${this.array.join('<br />')}`);
+    document.write(`<hr />`);
+    document.write(`</div>`);
+    */
     
-      for(let j = 0; j < newY; j++){
-        this.array[i][j] = 0;
+    document.write(`<div style="text-align: center;">`);
+    document.write(`<hr />`);
+  
+    for(let i = 0, height = this.array.length; i < height; i += 1) {
+      for(let j = 0, width = this.array[i].length; j < width; j += 1) {
+        let item = this.array[i][j];
+        let check = (j === (width - 1));
+        if(check){
+          document.write(`${item}<br>`);
+        } else {
+          document.write(`${item}` + ' ');
+        }
       }
     }
+  
+    document.write(`<hr />`);
+    document.write(`</div>`);
+  }
+  
+  clearField(pers) {
+    this.array[pers.XPosition][pers.YPosition] = 0;
+    this.array[pers.saveXPosition][pers.saveYPosition] = 0;
+  }
+  
+  changeSize(newX, newY) {
+    this.array = new Array(newX);
+      for(let i = 0; i < newX; i++) {
+        this.array[i] = new Array(newY);
+      
+        for(let j = 0; j < newY; j++){
+          this.array[i][j] = 0;
+        }
+      }
+  }
 }
 
 
@@ -117,3 +115,11 @@ class Person {
 }
 
 let person = new Person('Arch', 5, 7);
+
+console.log(field);
+
+field.renderField();
+person.start(field);
+person.go('left', 2, field);
+person.go('top', 1, field);
+field.renderField();
