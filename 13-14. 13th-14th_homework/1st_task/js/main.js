@@ -1,6 +1,5 @@
 function SuperMath() {
   this.check = function(obj){
-      console.log(this);
       var askUser = confirm('Выполнить действие?');
       if(askUser) {
           var result = this.toDo(obj.X, obj.Y, obj.sign);
