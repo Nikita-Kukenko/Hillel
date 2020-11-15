@@ -1,5 +1,6 @@
 * {
   transition: 0.3s;
+  box-sizing: content-box;
 }
 
 body {
@@ -13,22 +14,20 @@ body {
 .field {
   position: relative;
   width: 1000px;
-  height: 626px;
+  height: 620px;
   border: 3px solid red;
   border-top: none;
   background: url(../img/images.jpg) 0 0/cover no-repeat;
-  box-sizing: border-box;
 }
 
 .square-traveler {
   position: absolute;
-  bottom: 0px;
+  top: 520px;
   left: 0px;
   width: 100px;
   height: 100px;
   background-color: darkblue;
   border: 1px solid greenyellow;
-  box-sizing: border-box;
 }
 
 .face {
