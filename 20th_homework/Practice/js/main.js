@@ -107,8 +107,6 @@ window.onload = function() {
   };
   
   const contextMenu = new CreateContextMenu(data, actions);
-
-  console.dir(contextMenu);
   
   contextMenu
       .makeMenu()
@@ -126,7 +124,10 @@ window.onload = function() {
 
   document.addEventListener('click', function(event) {
     event.stopImmediatePropagation();
+    const html = document.querySelector('html');
 
-    menu.style.display = 'none';
+    if (event.target == html) {
+      menu.style.display = 'none';
+    }
   });
 }
