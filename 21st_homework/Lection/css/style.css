@@ -1,0 +1,24 @@
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background-color: cadetblue;
+}
+
+.click, .counter, .clear, .set {
+  padding: 5px;
+}
+
+.counter-wrapper {
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid chartreuse;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 218px;
+  height: 30px;
+  margin: 20px auto 0;
+}
