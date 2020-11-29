@@ -1,19 +1,50 @@
 var express = require("express"); // подключить express(упрощение для NodeJs) из папки node_modules
-
-console.log(express, "express");
 var fs = require("fs"); // fs -- обтект который дает возможность читать файлы(например json)
 var app = express();
 var bodyParser = require("body-parser"); // 'body-parser' -- библиотека дает возможность прочитать post запрос на NodeJs
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+
 const port = 3003;
+
+function random(max, min) {
+  return Math.round(Math.random() * (max - min) + min);
+}
 
 app.listen(port, function () {
   // говорим на каком порту запускать нашу  NODE_JS  программу.
   console.log(`Example app listening on port http://localhost:${port}/`);
 });
 
-app.get('/', function(req, res){
-  console.log('work!!!');
+app.get('/', function(req, response){
+  const value = random(30, 60)
+
+  if (value > 50) {
+    response
+      .status(200)
+      .send({
+        success: 'ok',
+        value
+      })
+  } else {
+    response
+      .status(401)
+      .send({
+        success: 'error',
+        value
+      })
+  }
 });
 
 
