@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 50px auto 0;
+  padding: 15px;
+  width: 200px;
+  border: 3px solid blue;
+}
+
+.wrapper, .wrapper .number, .progress-bar {
+  border-radius: 10px;
+}
+
+.wrapper input {
+  margin: 0 0 20px;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+.number {
+  padding: 5px;
+}
+
+.wrapper input:focus {
+  outline: none;
+}
+
+.progress-bar {
+  width: 50px;
+  min-height: 150px;
+  border: 1px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: lightgray;
+}
+
+.red-pointer, .green-pointer {
+  width: 101%;
+  border: none;
+  z-index: 1;
+}
+
+.red-pointer {
+  background-color: red;
+}
+
+.green-pointer {
+  background-color: forestgreen;
+  border-radius: 0 0 10px 10px;
+}
