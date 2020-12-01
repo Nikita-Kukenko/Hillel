@@ -1,0 +1,17 @@
+[
+  {
+    "login":"Nikita",
+    "password": "admin",
+    "id": 1
+  },
+  {
+    "login":"Marina",
+    "password": "query123",
+    "id": 2
+  },
+  {
+    "login":"Alisa",
+    "password": "warcraft3",
+    "id": 3
+  }
+]
