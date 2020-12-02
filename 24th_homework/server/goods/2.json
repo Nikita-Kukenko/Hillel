@@ -1,0 +1,20 @@
+[
+  {
+    "type": "ship",
+    "name": "Destroyer",
+    "model": "051B",
+    "year": 1998
+  },
+  {
+    "type": "helicopter",
+    "name": "Bell",
+    "model": "AH-1 Cobra",
+    "year": 1965
+  },
+  {
+    "type": "tank",
+    "name": "Scorpio",
+    "model": "FV101",
+    "year": 1972
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "PC",
+    "name": "Ryzen Threadripper",
+    "model": "3970X",
+    "year": 2020
+  },
+  {
+    "type": "laptop",
+    "name": "HP Omen X",
+    "model": "2S 15-dg0004ur",
+    "year": 2020
+  },
+  {
+    "type": "smartphone",
+    "name": "Huawei Mate Xs",
+    "model": "Interstellar",
+    "year": 2020
+  }
+]

@@ -1,6 +1,4 @@
 function ajax({ url, method, data, success, error = () => {} }) {
-  console.log(data, 'data');
-  debugger
   const xhttp = new XMLHttpRequest();
 
   xhttp.onload = () => {
