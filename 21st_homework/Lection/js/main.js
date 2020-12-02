@@ -31,8 +31,9 @@ function getCounterValue(element) {
 
 function handleChange(items) {
   [].forEach.call(items, (item) => {
-      let counterElem = item[0];
-      let clickElem = item[1];
+      const id = item.id
+      let counterElem = document.querySelector(`#${id} .counter`);
+      let clickElem = document.querySelector(`#${id} .click`);
 
       clickElem.addEventListener('click', (event) => {
         event.preventDefault();
