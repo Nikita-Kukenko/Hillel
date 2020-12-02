@@ -12,22 +12,16 @@ function clearCounters(element) {
 function setCountersValue(items) {
   setButton.addEventListener('click', function(){
     const checkItem = prompt('Введите id', 'one');
-    const firstCounter = items[0][0];
-    const secondCounter = items[1][0];
-  
-    switch (checkItem) {
-      case 'one':
-        firstCounter.value = prompt('Введите число');
-        localStorage.setItem(firstCounter.name, firstCounter.value);
-        break;
-      case 'two':
-        secondCounter.value = prompt('Введите число');
-        localStorage.setItem(secondCounter.name, secondCounter.value);
-        break;
-      default:
-        alert('Элемент с таким id отсутствует');
-        break;
-    }
+
+    items.forEach((item) => {
+      const itemId = item.id;
+
+      if(itemId === checkItem) {
+        const inputNode = document.querySelector(`#${itemId} .counter`)
+        inputNode.value = prompt('Введите число');
+        localStorage.setItem(inputNode.name, inputNode.value);
+      }
+    })
   });
 }
 
