@@ -18,16 +18,11 @@ const makeSoppingList = (function(formItem, data) {
     const ul = document.createElement('ul');
     ul.classList.add('sopping-list_item');
 
-    const itemType = document.createElement('li');
-    const itemName = document.createElement('li');
-    const itemModel = document.createElement('li');
-    const itemYear = document.createElement('li');
-    itemType.innerHTML = `<b>Type:</b> ${type}`;
-    itemName.innerHTML = `<b>Name:</b> ${name}`;
-    itemModel.innerHTML = `<b>Model:</b> ${model}`;
-    itemYear.innerHTML = `<b>Year:</b> ${year}`;
+    ul.innerHTML = `<li><b>Type:</b> ${type}
+                    <li><b>Name:</b> ${name}
+                    <li><b>Model:</b> ${model}
+                    <li><b>Year:</b> ${year}`;
 
-    ul.append(itemType, itemName, itemModel, itemYear);
     fragment.append(ul)
   })
 
