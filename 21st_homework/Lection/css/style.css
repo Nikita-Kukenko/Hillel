@@ -5,6 +5,11 @@
   background-color: cadetblue;
 }
 
+.wrapper h3 {
+  margin: 0 0 5px;
+  color: white;
+}
+
 .click, .counter, .clear, .set {
   padding: 5px;
 }
