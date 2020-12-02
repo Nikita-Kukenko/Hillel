@@ -5,12 +5,12 @@ const render = (fragment) => {
 
   if(fragment) {
     conteiner.append(fragment);
-    conteiner.style.display = 'flex';
+    conteiner.classList.remove('hide_element');
   }
 }
 
 const makeSoppingList = (function(formItem, data) {
-  formItem.style.display = 'none';
+  formItem.classList.add('hide_element');
 
   const fragment = document.createDocumentFragment();
 
@@ -38,16 +38,16 @@ const makeSoppingList = (function(formItem, data) {
 const getAuthorization = function(event) {
   event.preventDefault();
 
-  const loginValue = form[0].value;
-  const passwordValue = form[1].value;
+  const loginItem = document.querySelector('#login');
+  const passwordItem = document.querySelector('#password');
 
-  if(loginValue && passwordValue) {
+  if(loginItem.value && passwordItem.value) {
     ajax({
       url: 'http://localhost:3005/',
       method: 'post',
       data: {
-        login: loginValue,
-        password: passwordValue
+        login: loginItem.value,
+        password: passwordItem.value
       },
       success(response) {
         const id = response.id;

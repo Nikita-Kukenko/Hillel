@@ -19,7 +19,6 @@
 }
 
 .sopping-list_wrapper {
-  display: none;
   width: 200px;
   padding: 20px;
 }
@@ -39,4 +38,8 @@
 
 .sopping-list_item:last-child {
   border-bottom: none;
+}
+
+.hide_element {
+  display: none;
 }
