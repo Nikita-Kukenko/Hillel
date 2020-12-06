@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    #app {
+      display: flex;
+      width: 400px;
+      margin: 20px auto;
+      justify-content: space-between;
+      padding: 15px;
+    }
+
+    .task-list_wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .task-list_wrapper ol {
+      padding: 0 0 0 20px;
+    }
+  </style>
+
+  <div id="app">
+
+    <div class="task-list_wrapper">
+      <ol>
+        <li v-for="item in taskListOne">{{ item }}</li>
+      </ol>
+      <button @click="makeTransfer(taskListOne, taskListTwo)">Transfer</button>
+    </div>
+    <div class="task-list_wrapper">
+      <ol>
+        <li v-for="item in taskListTwo">{{ item }}</li>
+      </ol>
+      <button @click="makeTransfer(taskListTwo, taskListOne)">Transfer</button>
+    </div>
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
