@@ -1,0 +1,29 @@
+.diagrams-wrapper {
+  margin: 0 0 10px;
+  height: 300px;
+}
+
+.diagrams-wrapper, .regulator-wrapper {
+  align-items: flex-end;
+}
+
+.diagrams-wrapper, .diagram, .regulator-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.diagram {
+  font-weight: 700;
+  width: 129px;
+  flex-direction: column;
+}
+
+.diagram p {
+  text-align: center;
+}
+
+.sort-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px;
+}
