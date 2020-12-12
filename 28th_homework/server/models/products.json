@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Pepsi",
+    "price": 5,
+    "isTop": false
+  },
+  {
+    "name": "Coca-Cola",
+    "price": 4,
+    "isTop": true
+  },
+  {
+    "name": "Mars",
+    "price": 7,
+    "isTop": false
+  },
+  {
+    "name": "Nats",
+    "price": 8,
+    "isTop": true
+  },
+  {
+    "name": "Pepsi",
+    "price": 5,
+    "isTop": false
+  },
+  {
+    "name": "Coca-Cola",
+    "price": 4,
+    "isTop": true
+  },
+  {
+    "name": "Mars",
+    "price": 7,
+    "isTop": false
+  },
+  {
+    "name": "Nats",
+    "price": 8,
+    "isTop": true
+  },
+  {
+    "name": "Pepsi",
+    "price": 5,
+    "isTop": false
+  },
+  {
+    "name": "Coca-Cola",
+    "price": 4,
+    "isTop": true
+  },
+  {
+    "name": "Mars",
+    "price": 7,
+    "isTop": false
+  },
+  {
+    "name": "Nats",
+    "price": 8,
+    "isTop": true
+  }
+]
