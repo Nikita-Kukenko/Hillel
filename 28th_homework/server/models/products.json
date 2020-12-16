@@ -2,61 +2,79 @@
   {
     "name": "Pepsi",
     "price": 5,
-    "isTop": false
+    "isTop": false,
+    "sale": true
   },
   {
     "name": "Coca-Cola",
     "price": 4,
-    "isTop": true
+    "isTop": true,
+    "sale": false
   },
   {
     "name": "Mars",
     "price": 7,
-    "isTop": false
+    "isTop": false,
+    "sale": false
   },
   {
     "name": "Nats",
     "price": 8,
-    "isTop": true
+    "isTop": true,
+    "sale": false
   },
   {
     "name": "Pepsi",
     "price": 5,
-    "isTop": false
+    "isTop": false,
+    "sale": false
   },
   {
     "name": "Coca-Cola",
     "price": 4,
-    "isTop": true
+    "isTop": true,
+    "sale": true
   },
   {
     "name": "Mars",
     "price": 7,
-    "isTop": false
+    "isTop": false,
+    "sale": false
   },
   {
     "name": "Nats",
     "price": 8,
-    "isTop": true
+    "isTop": true,
+    "sale": false
   },
   {
     "name": "Pepsi",
     "price": 5,
-    "isTop": false
+    "isTop": false,
+    "sale": false
   },
   {
     "name": "Coca-Cola",
     "price": 4,
-    "isTop": true
+    "isTop": true,
+    "sale": false
   },
   {
     "name": "Mars",
     "price": 7,
-    "isTop": false
+    "isTop": false,
+    "sale": true
   },
   {
     "name": "Nats",
     "price": 8,
-    "isTop": true
+    "isTop": true,
+    "sale": false
+  },
+  {
+    "name": "Nats",
+    "price": 8,
+    "isTop": true,
+    "sale": true
   }
 ]
