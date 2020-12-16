@@ -38,24 +38,15 @@ let diagrams = [
 
 Vue.component('DiagramsApp', {
   data() {
-    let newInfo = JSON.parse(localStorage.getItem('newData'));
     return {
-      items: newInfo || diagrams,
+      items: '',
     }
   },
+  created: function() {
+    let newInfo = JSON.parse(localStorage.getItem('newData'));
+    this.$data.items = newInfo || diagrams;
+  },
   methods: {
-    changeDiagramsValue: function(obj) {
-      let newDiagrams = this.$data.items;
-
-      newDiagrams.forEach(item => {
-        if(item.name === obj.name) {
-          item.value = obj.value
-        }
-      })
-
-      let sirializeNewDiagrams = JSON.stringify(newDiagrams);
-      localStorage.setItem('newData', sirializeNewDiagrams);
-    },
     sortDiagrams: function() {
       let diagramsItem = this.$data.items;
       
@@ -76,17 +67,10 @@ Vue.component('DiagramsApp', {
   template: `
     <div>
       <div class="diagrams-wrapper">
-        <diagrams-item
-          :diagramProps = "item"
+        <diagram-block
+          :itemsData="items"
           v-for="item in items"
-        />
-      </div>
-      <div class="regulator-wrapper">
-        <diagrams-item-regulator
-          @changeRegulatorValue="changeDiagramsValue"
-          v-for="item in items"
-          :valueRegulator="item.value"
-          :itemName="item.name"
+          :itemInfo="item"
         />
       </div>
       <sort-diagrams-button
@@ -96,65 +80,76 @@ Vue.component('DiagramsApp', {
   `
 });
 
-Vue.component('DiagramsItem', {
-  props: ['diagramProps'],
-  data() {
-    return {}
-  },
+Vue.component('DiagramBlock', {
+  props: ['itemInfo', 'itemsData'],
   methods: {
-    
+    changeDiagramsValue: function(obj) {
+      let newDiagram = this.$props.itemInfo;
+      let newData = this.$props.itemsData;
+      newDiagram.value = obj.value;
+
+      let sirializeNewData = JSON.stringify(newData);
+      localStorage.setItem('newData', sirializeNewData);
+    }
   },
   template: `
-        <div
-          class="diagram"
-          :style = "{
-            backgroundColor: diagramProps.color,
-            height: diagramProps.value + 'px'
-          }"
-        >
-          <p>{{ diagramProps.name }}</p>
-        </div>
+    <div>
+      <diagrams-item
+        :diagramProps="itemInfo"
+      />
+      <diagrams-item-regulator
+        @changeRegulatorValue="changeDiagramsValue"
+        :valueRegulator="itemInfo.value"
+      />
+    </div>
+  `
+})
+
+Vue.component('DiagramsItem', {
+  props: ['diagramProps'],
+  template: `
+    <div
+      class="diagram"
+      :style = "{
+        backgroundColor: diagramProps.color,
+        height: diagramProps.value + 'px'
+      }"
+    >
+      <p>{{ diagramProps.name }}</p>
+    </div>
   `
 })
 
 Vue.component('DiagramsItemRegulator', {
-  props: ['valueRegulator', 'itemName'],
-  data() {
-    return {}
-  },
+  props: ['valueRegulator'],
   methods: {
     changeRegulatorValue() {
-      this.$emit('changeRegulatorValue', { value: this.$el.value, name: this.$el.name })
+      this.$emit('changeRegulatorValue', { value: this.$el.value })
     }
   },
   template: `
-          <input
-            @input="changeRegulatorValue()"
-            class="diagram-item_input"
-            type="range"
-            min="100"
-            max="300"
-            :value="valueRegulator"
-            :name="itemName"
-          >
+    <input
+      @input="changeRegulatorValue()"
+      class="diagram-item_input"
+      type="range"
+      min="100"
+      max="300"
+      :value="valueRegulator"
+    >
   `
 })
 
 Vue.component('sortDiagramsButton', {
-  props: ['valueRegulator', 'itemName'],
-  data() {
-    return {}
-  },
   methods: {
     sortValue() {
       this.$emit('sortValue')
     }
   },
   template: `
-          <button
-            class="sort-button"
-            @click="sortValue()"
-          >Sort Diagrams</button>
+    <button
+      class="sort-button"
+      @click="sortValue()"
+    >Sort Diagrams</button>
   `
 })
 
