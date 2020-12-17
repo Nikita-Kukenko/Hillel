@@ -9,11 +9,6 @@
                 <section class="modal__content content">
                     <slot name="content"></slot>
                 </section>
-
-                <section class="modal__footer footer">
-                    <slot name="footer"></slot>
-                </section>
-
                 <span class="modal__close" @click="close">X</span>
             </div>
         </div>
@@ -46,8 +41,8 @@ export default {
         align-items: center;
     }
     &__container {
-        width: 30%;
-        min-height: 300px;
+        min-width: 450px;
+        min-height: 350px;
         padding: 10px;
         position: relative;
         background-color: white;
@@ -58,8 +53,15 @@ export default {
         justify-content: space-between;
         align-items: stretch;
     }
-    &__header, &__content {
+    &__header {
         border-bottom: 1px solid black;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 310px;
+        padding: 5px;
     }
     &__close {
         color: red;

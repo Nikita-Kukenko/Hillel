@@ -7,6 +7,7 @@ StoreItem
       <img class="product-img" src='../assets/box.png' alt="some-product">
       <img v-show="product.sale" class="sale" src='../assets/sale.png' alt="sale" />
     </div>
+    <p>{{ product.info }}</p>
     <section>Price: {{ product.price }}$</section>
     <span class="product-top" v-show="product.isTop">TOP PRODUCT</span>
 
@@ -23,7 +24,7 @@ export default {
   },
   methods: {
     showModalForProduct() {
-      this.$emit('showModalForProduct', true);
+      this.$emit('showModalForProduct', { product: this.product });
     }
   },
 }
