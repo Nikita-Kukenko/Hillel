@@ -13,15 +13,16 @@
       </template>
 
       <template v-slot:content>
-        <form class="edit-form" action="submit">
-          Name: <input type="text" :value="item.product.name" ref="inputName" />
-          Info: <textarea class="product-info" :value="item.product.info" ref="inputInfo" />
-          Price: <input type="text" :value="item.product.price" ref="inputPrice" />
+        <form class="edit-form" action="submit" @input="editProduct">
+          Name: <input type="text" :value="item.product.name" id="name" />
+          Info: <textarea class="product-info" :value="item.product.info" id="info" />
+          Price: <input type="text" :value="item.product.price" id="price" />
           
-          <button type="submit" @click="editProduct">Edit</button>
+          <button type="submit" @click="changeDataOnTheServer">Edit</button>
         </form>
       </template>
     </Modal>
+
   </div>
 </template>
 
@@ -40,7 +41,8 @@ export default {
     return {
       products: [],
       isShowModal: false,
-      item: []
+      item: [],
+      newItem : {}
     }
   },
   methods: {
@@ -54,15 +56,36 @@ export default {
     editProduct(event) {
       event.preventDefault()
 
-      let prevProducts = this.products;
-      let newItem = this.item;
-      let newProducts = [];
+      // понимаю что решение довольно громоздкое и неизящное, но ничего другого в голову не приходит (кроме ref, но это явно неудачная идея)
+      const id = event.target.id;
+      const newItem = Object.assign({}, this.item.product);
+
+      switch(id) {
+        case 'name':
+          newItem.name = event.target.value;
+          break;
+        case 'info':
+          newItem.info = event.target.value;
+          break;
+        case 'price':
+          newItem.price = event.target.value;
+          break;
+        default :
+          break;
+      }
+
+      this.newItem = newItem;
+    },
+    async changeDataOnTheServer() {
+      const prevProducts = this.products;
+      const newProducts = [];
+      const newItemInfo = this.newItem;
 
       prevProducts.forEach(product => {
-        if(product.id === newItem.product.id) {
-          product.name = this.$refs.inputName.value;
-          product.info = this.$refs.inputInfo.value;
-          product.price = this.$refs.inputPrice.value;
+        if(product.id === newItemInfo.id) {
+          product.name = newItemInfo.name;
+          product.info = newItemInfo.info;
+          product.price = newItemInfo.price;
           newProducts.push(product);
         } else {
           newProducts.push(product);
@@ -71,11 +94,7 @@ export default {
 
       this.products = newProducts;
 
-      this.changeDataOnTheServer();
-      this.closeModal();
-    },
-    changeDataOnTheServer() {
-      fetch(getApiUrl('products'), {
+      await fetch(getApiUrl('products'), {
         method: "post",
         headers: {
           'Accept': 'application/json',
@@ -83,6 +102,8 @@ export default {
         },
         body: JSON.stringify(this.products)
       })
+
+      this.closeModal();
     }
   },
   async created() {
