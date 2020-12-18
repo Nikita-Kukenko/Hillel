@@ -13,7 +13,6 @@
       </template>
 
       <template v-slot:content>
-
         <form class="edit-form" action="submit">
           Name: <input type="text" :value="item.product.name" ref="inputName" />
           Info: <textarea class="product-info" :value="item.product.info" ref="inputInfo" />
@@ -21,7 +20,6 @@
           
           <button type="submit" @click="editProduct">Edit</button>
         </form>
-
       </template>
     </Modal>
   </div>
@@ -48,7 +46,7 @@ export default {
   methods: {
     showModal(item) {
       this.isShowModal = true;
-      this.$data.item = item;
+      this.item = item;
     },
     closeModal() {
       this.isShowModal = false;
@@ -56,8 +54,8 @@ export default {
     editProduct(event) {
       event.preventDefault()
 
-      let prevProducts = this.$data.products;
-      let newItem = this.$data.item;
+      let prevProducts = this.products;
+      let newItem = this.item;
       let newProducts = [];
 
       prevProducts.forEach(product => {
@@ -71,7 +69,7 @@ export default {
         }
       })
 
-      this.$data.products = newProducts;
+      this.products = newProducts;
 
       this.changeDataOnTheServer();
       this.closeModal();
@@ -93,7 +91,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .products-wrapper {
     display: grid;

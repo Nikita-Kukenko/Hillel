@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .modal {
     position: fixed;
     left: 0px;
@@ -76,4 +77,5 @@ export default {
         }
     }
 }
+
 </style>
